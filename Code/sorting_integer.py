@@ -8,14 +8,17 @@ def counting_sort(numbers):
     TODO: Memory usage: ??? Why and under what conditions?"""
     min_int = 0
     max_int = 0
+    # O(n)
     for val in numbers:
         if val >= max_int:
             max_int = val
         if val <= min_int:
             min_int = val
 
+    #O(max - min)
     counts = [None] * ((max_int + 1) - min_int)
 
+    # O(n)
     for val in numbers:
         if counts[val] is not None:
             counts[val] += 1
@@ -23,6 +26,7 @@ def counting_sort(numbers):
             counts[val] = 1
 
     result = []
+    #O (max - min)
     for idx, val in enumerate(counts):
         if val is not None:
             result.extend([idx] * val)

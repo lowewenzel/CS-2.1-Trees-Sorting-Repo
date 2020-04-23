@@ -2,7 +2,7 @@
 
 from sorting import random_ints
 from sorting_iterative import is_sorted, bubble_sort, selection_sort, insertion_sort
-from sorting_recursive import split_sort_merge, merge_sort, quick_sort
+from sorting_recursive import split_sort_merge, merge_sort, quick_sort, merge
 from sorting_integer import counting_sort, bucket_sort
 import unittest
 
@@ -156,6 +156,12 @@ class IntegerSortTest(unittest.TestCase):
         sort(items3)  # Mutate
         assert items3 == sorted_items3
 
+    def test_sort_on_lists_with_large_ranges(self):
+        items = random_ints(20, min=1, max=999999)
+        sorted_items1 = sorted(items)
+        sort(items)
+        assert items == sorted_items1
+
 
 class StringSortTest(unittest.TestCase):
 
@@ -184,6 +190,14 @@ class StringSortTest(unittest.TestCase):
         sorted_items = sorted(items)  # Copy
         sort(items)  # Mutate
         assert items == sorted_items
+
+
+class MergeTest(unittest.TestCase):
+    def test_merge(self):
+        items1 = [1, 4]
+        items2 = [2, 6]
+        result = [1, 2, 4, 6]
+        assert(merge(items1, items2)) == result
 
 
 def get_sort_function():

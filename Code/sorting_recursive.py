@@ -97,6 +97,7 @@ def partition(items, low, high):
     pivot = items[high]  # just use the end
 
     cursor = low  # cursor is where the comparisons and swaps occur
+    # O (range)
     for i in range(low, high):
         if items[i] <= pivot:
             items[i], items[cursor] = items[cursor], items[i]
@@ -123,8 +124,11 @@ def quick_sort(items, low=None, high=None):
         high = len(items) - 1
 
     if low <= high:
+        # O (n)
         p = partition(items, low, high)
+        # O (nlogn)
         quick_sort(items, low, p - 1)  # left sublist
+        # O (nlogn)
         quick_sort(items, p + 1, high)  # right sublist
 
 

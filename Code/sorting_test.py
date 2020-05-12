@@ -1,7 +1,7 @@
 #!python
 
 from sorting import random_ints
-from sorting_iterative import is_sorted, bubble_sort, selection_sort, insertion_sort
+from sorting_iterative import is_sorted, bubble_sort, selection_sort, insertion_sort, heap_sort_inplace
 from sorting_recursive import split_sort_merge, merge_sort, quick_sort, merge
 from sorting_integer import counting_sort, bucket_sort
 import unittest
@@ -229,7 +229,7 @@ def get_sort_function():
 
 
 # If using PyTest, change this variable to the sort function you want to test
-sort = counting_sort
+sort = heap_sort_inplace
 
 
 if __name__ == '__main__':

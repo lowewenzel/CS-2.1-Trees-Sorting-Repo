@@ -1,4 +1,5 @@
 #!python
+from binaryheap import BinaryMinHeap
 
 
 def is_sorted(items):
@@ -65,3 +66,19 @@ def insertion_sort(items):
     # TODO: Repeat until all items are in sorted order
     # TODO: Take first unsorted item
     # TODO: Insert it in sorted order in front of items
+
+
+def heap_sort(items):
+    heap = BinaryMinHeap(items)
+
+    result = []
+
+    for i in range(0, len(items)):
+        result.append(heap.delete_min())
+
+
+def heap_sort_inplace(items):
+    heap = BinaryMinHeap(items)
+
+    for i in range(0, len(items)):
+        items[i] = heap.delete_min()
